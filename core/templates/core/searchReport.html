@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block main %}
+<h1 style="text-align: center;>">Report</h1>
+    <div class="row">
+        <table class="table">
+            <div class="col-md-3">
+                Date Arrived (format yyyy-mm)
+                <input type="text" name="searchfield" id="searchfield" class="form-control">
+                <form method="POST">
+                    <a href="{% url 'core_report' %}" class="btn btn-primary">Report</a>
+                    <a href="{% url 'index' %}" class="btn btn-warning">Cancel</a>
+                </form>
+            </div>
+        </table>
+    </div>
+{% endblock %}}

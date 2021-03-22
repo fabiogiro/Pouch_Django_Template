@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Register</h3>
+            <form action="{% url 'core_pouch_insert' %}" method="POST">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <button type="submit" class="btn btn-primary">Insert</button>
+                <a href="{% url 'index' %}" class="btn btn-warning">Cancel</a>
+            </form>
+        </div>
+        <div class="col-sm-6">
+            <h3>Pouchs List</h3>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Code</th>
+                  <th scope="col">Arrived</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for pouch in pouchs %}
+                <tr>
+                  <th scope="row"><a href="{% url 'core_pouch_edit' pouch.id %}">{{ pouch.id }}</th>
+                  <td>{{ pouch.codepouch }}</td>
+                  <td>{{ pouch.dtarrived }}</td>
+                </tr>
+               {% endfor %}
+              </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}}

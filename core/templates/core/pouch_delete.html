@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-12">
+            <h2>Are you sure? {{ obj }}</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a href="{% url 'core_pouch_list' %}" class="btn btn-warning">Cancel</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}}
